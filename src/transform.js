@@ -656,8 +656,11 @@ const transform = {
     }
   },
   ExportDeclaration: {
-    exit(path) {
-      if (path.node.exportKind == "type") {
+    exit(path, state) {
+      if (
+        !state.options.typeOnlyImportsExports &&
+        path.node.exportKind === "type"
+      ) {
         path.node.exportKind = "value";
       }
 
@@ -667,8 +670,10 @@ const transform = {
     }
   },
   ImportDeclaration: {
-    exit(path) {
-      path.node.importKind = "value";
+    exit(path, state) {
+      if (!state.options.typeOnlyImportsExports) {
+        path.node.importKind = "value";
+      }
       stripSuffixFromImportSource(path);
     }
   },

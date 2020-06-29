@@ -11,7 +11,7 @@ export const maybeDecodeHash = (
         const [key, value] = param.split("=");
         return {
           ...params,
-          [key]: value === undefined ? true : value
+          [key]: value === undefined ? true : value,
         };
       }, {}) as any;
 
@@ -50,6 +50,11 @@ export const maybeDecodeHash = (
         parseInt(urlParams.inlineUtilityTypes)
       );
     }
+    if (urlParams.typeOnlyImportsExports) {
+      options.typeOnlyImportsExports = Boolean(
+        parseInt(urlParams.typeOnlyImportsExports)
+      );
+    }
 
     const code = atob(urlParams.code);
 
@@ -61,7 +66,7 @@ export const maybeDecodeHash = (
 
 export const encodeHash = (code: string, options: Options) => {
   const urlParams = {
-    code: btoa(code)
+    code: btoa(code),
   } as any;
 
   for (const [key, value] of Object.entries(options)) {

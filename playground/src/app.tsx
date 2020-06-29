@@ -60,6 +60,7 @@ const defaultOptions: Options = {
   arrowParens: "avoid",
   printWidth: 80,
   inlineUtilityTypes: false,
+  typeOnlyImportsExports: true,
 };
 
 class App extends React.Component<Props, State> {

@@ -27,6 +27,7 @@ export type Options = {
   arrowParens: "avoid" | "always";
   printWidth: number;
   inlineUtilityTypes: boolean;
+  typeOnlyImportsExports: boolean;
 };
 
 type Props = {
@@ -220,6 +221,21 @@ class OptionsPanel extends React.Component<Props> {
               onOptionsChange({
                 ...options,
                 inlineUtilityTypes: e.currentTarget.checked,
+              });
+            }}
+          />
+          <label htmlFor="type-only-imports-exports">
+            allow type only <br />
+            imports exports
+          </label>
+          <input
+            id="type-only-imports-exports"
+            type="checkbox"
+            checked={options.typeOnlyImportsExports}
+            onChange={(e) => {
+              onOptionsChange({
+                ...options,
+                typeOnlyImportsExports: e.currentTarget.checked,
               });
             }}
           />

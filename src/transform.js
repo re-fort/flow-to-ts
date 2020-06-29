@@ -88,7 +88,8 @@ const UnqualifiedReactTypeNameMap = {
   SyntheticWheelEvent: "WheelEvent",
   SyntheticPointerEvent: "PointerEvent",
   SyntheticTouchEvent: "TouchEvent",
-  SyntheticTransitionEvent: "TransitionEvent"
+  SyntheticTransitionEvent: "TransitionEvent",
+  React$Node: "ReactNode"
 };
 
 // Only types with different names are included.
@@ -102,7 +103,7 @@ const QualifiedReactTypeNameMap = {
   Portal: "ReactPortal",
   NodeArray: "ReactNodeArray"
 
-  // TODO: private types, e.g. React$ElementType, React$Node, etc.
+  // TODO: private types, e.g. React$ElementType, etc.
 
   // TODO: handle ComponentType, ElementConfig, ElementProps, etc.
 };

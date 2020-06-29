@@ -8,3 +8,4 @@ let fragment: React.ReactFragment;
 let portal: React.ReactPortal;
 let nodeArray: React.ReactNodeArray;
 let element: React.ReactElement;
+let reactNode: React.ReactNode;

@@ -88,7 +88,7 @@ describe("cli", () => {
       "node",
       path.join(__dirname, "../flow-to-ts.js"),
       "--write",
-      inputPath
+      inputPath,
     ]);
 
     // Assert
@@ -114,7 +114,7 @@ describe("cli", () => {
       "node",
       path.join(__dirname, "../flow-to-ts.js"),
       "--write",
-      inputGlob
+      inputGlob,
     ]);
 
     // Assert
@@ -134,7 +134,7 @@ describe("cli", () => {
       path.join(__dirname, "../flow-to-ts.js"),
       "--write",
       "--delete-source",
-      inputPath
+      inputPath,
     ]);
 
     // Assert
@@ -162,7 +162,7 @@ describe("cli", () => {
       path.join(__dirname, "../flow-to-ts.js"),
       "--write",
       "--delete-source",
-      inputGlob
+      inputGlob,
     ]);
 
     // Assert
@@ -197,7 +197,7 @@ describe("cli", () => {
       path.join(__dirname, "../flow-to-ts.js"),
       "--write",
       "--delete-source",
-      inputGlob
+      inputGlob,
     ]);
 
     // Assert
@@ -222,7 +222,7 @@ describe("cli", () => {
       "node",
       path.join(__dirname, "../flow-to-ts.js"),
       "--write",
-      inputPath
+      inputPath,
     ]);
 
     // Assert

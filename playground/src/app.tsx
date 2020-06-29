@@ -59,7 +59,7 @@ const defaultOptions: Options = {
   bracketSpacing: false,
   arrowParens: "avoid",
   printWidth: 80,
-  inlineUtilityTypes: false
+  inlineUtilityTypes: false,
 };
 
 class App extends React.Component<Props, State> {
@@ -83,7 +83,7 @@ class App extends React.Component<Props, State> {
         errors: [],
         focusedEditor: null,
         options,
-        scroll: { x: 0, y: 0 }
+        scroll: { x: 0, y: 0 },
       };
     } catch (e) {
       this.state = {
@@ -92,7 +92,7 @@ class App extends React.Component<Props, State> {
         errors: [e.toString()],
         focusedEditor: null,
         options: defaultOptions,
-        scroll: { x: 0, y: 0 }
+        scroll: { x: 0, y: 0 },
       };
     }
   }
@@ -102,10 +102,10 @@ class App extends React.Component<Props, State> {
       Promise.all([
         fetch("/static/0.98.1/flowlib/core.js"),
         fetch("/static/0.98.1/flowlib/react.js"),
-        fetch("/static/0.98.1/flowlib/intl.js")
+        fetch("/static/0.98.1/flowlib/intl.js"),
       ])
-        .then(results => Promise.all(results.map(res => res.text())))
-        .then(values => {
+        .then((results) => Promise.all(results.map((res) => res.text())))
+        .then((values) => {
           const [core, react, intl] = values;
           try {
             flow.registerFile("/static/0.98.1/flowlib/core.js", core);
@@ -116,7 +116,7 @@ class App extends React.Component<Props, State> {
               "/static/0.98.1/flowlib/core.js",
               "/static/0.98.1/flowlib/react.js",
               "/static/0.98.1/flowlib/intl.js",
-              "try-lib.js"
+              "try-lib.js",
             ]);
           } catch (e) {
             // ignore errors
@@ -164,7 +164,9 @@ class App extends React.Component<Props, State> {
       const errors = this.flow.checkContent("-", flowCode);
       console.log(errors);
       if (errors.length > 0) {
-        this.setState({ errors: errors.map(error => error.message[0].descr) });
+        this.setState({
+          errors: errors.map((error) => error.message[0].descr),
+        });
       } else {
         this.setState({ errors: [] });
       }
@@ -179,7 +181,7 @@ class App extends React.Component<Props, State> {
       left: 0,
       top: 0,
       right: 0,
-      bottom: 0
+      bottom: 0,
     } as React.CSSProperties;
 
     const flowOverlayStyle = {
@@ -188,14 +190,14 @@ class App extends React.Component<Props, State> {
       right: 0,
       bottom: 0,
       pointerEvents: errors.length > 0 ? "" : "none",
-      zIndex: 3
+      zIndex: 3,
     } as React.CSSProperties;
 
     const errorStyle = {
       backgroundColor: errors.length > 0 ? "rgba(255, 0, 0, 0.5)" : "",
       padding: 16,
       fontSize: 16,
-      fontFamily: "sans-serif"
+      fontFamily: "sans-serif",
     };
 
     const tsOverlayStyle = {
@@ -205,14 +207,14 @@ class App extends React.Component<Props, State> {
       right: 0,
       bottom: 0,
       pointerEvents: "none",
-      backgroundColor: errors.length > 0 ? "rgba(255, 255, 255, 0.5)" : ""
+      backgroundColor: errors.length > 0 ? "rgba(255, 255, 255, 0.5)" : "",
     } as React.CSSProperties;
 
     const headerStyle = {
       fontFamily: "sans-serif",
       margin: 0,
       fontSize: 24,
-      fontWeight: 500
+      fontWeight: 500,
     } as React.CSSProperties;
 
     const globalHeader = {
@@ -223,20 +225,20 @@ class App extends React.Component<Props, State> {
       justifyContent: "space-between",
       alignItems: "center",
       padding: 8,
-      color: "white"
+      color: "white",
     } as React.CSSProperties;
 
     const tabStyle = {
       padding: "8px 16px 8px 16px",
       backgroundColor: "#FFF",
       fontFamily: "sans-serif",
-      fontWeight: 300
+      fontWeight: 300,
     } as React.CSSProperties;
 
     const tabContainerStyle = {
       backgroundColor: "#DDD",
       display: "flex",
-      borderBottom: "solid 1px #DDD"
+      borderBottom: "solid 1px #DDD",
     } as React.CSSProperties;
 
     return (
@@ -246,7 +248,7 @@ class App extends React.Component<Props, State> {
           gridTemplateColumns: "250px calc(50% - 125px) calc(50% - 125px)",
           gridTemplateRows: "auto auto minmax(0, 1fr)",
           height: "100%",
-          overflow: "hidden"
+          overflow: "hidden",
         }}
       >
         <div style={globalHeader}>
@@ -260,15 +262,15 @@ class App extends React.Component<Props, State> {
         </div>
         <OptionsPanel
           options={this.state.options}
-          onOptionsChange={options => this.setState({ options })}
-          onCodeChange={code => this.update(code)}
+          onOptionsChange={(options) => this.setState({ options })}
+          onCodeChange={(code) => this.update(code)}
         />
         <div style={tabContainerStyle}>
           <div
             style={{
               ...tabStyle,
               color:
-                this.state.focusedEditor === this.flowEditor ? "black" : "#777"
+                this.state.focusedEditor === this.flowEditor ? "black" : "#777",
             }}
           >
             input.js
@@ -279,7 +281,7 @@ class App extends React.Component<Props, State> {
             style={{
               ...tabStyle,
               color:
-                this.state.focusedEditor === this.tsEditor ? "black" : "#777"
+                this.state.focusedEditor === this.tsEditor ? "black" : "#777",
             }}
           >
             output.ts [readonly]
@@ -289,7 +291,7 @@ class App extends React.Component<Props, State> {
           style={{
             position: "relative",
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
           }}
         >
           <CodeMirror
@@ -297,12 +299,12 @@ class App extends React.Component<Props, State> {
             options={{
               mode: {
                 name: "jsx",
-                base: { name: "javascript", typescript: true }
+                base: { name: "javascript", typescript: true },
               },
               lineNumbers: true,
-              scrollbarStyle: "native"
+              scrollbarStyle: "native",
             }}
-            editorDidMount={editor => (this.flowEditor = editor)}
+            editorDidMount={(editor) => (this.flowEditor = editor)}
             onBeforeChange={(editor, data, value) => {
               this.update(value);
             }}
@@ -327,7 +329,7 @@ class App extends React.Component<Props, State> {
           style={{
             position: "relative",
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
           }}
         >
           <CodeMirror
@@ -335,12 +337,12 @@ class App extends React.Component<Props, State> {
             options={{
               mode: {
                 name: "jsx",
-                base: { name: "javascript", typescript: true }
+                base: { name: "javascript", typescript: true },
               },
               lineNumbers: true,
-              scrollbarStyle: "native"
+              scrollbarStyle: "native",
             }}
-            editorDidMount={editor => (this.tsEditor = editor)}
+            editorDidMount={(editor) => (this.tsEditor = editor)}
             onBeforeChange={(editor, data, value) => {
               // we only want changes to flow editor to update the ts editor
             }}

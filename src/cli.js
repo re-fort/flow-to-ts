@@ -6,7 +6,7 @@ const convert = require("./convert.js");
 const detectJsx = require("./detect-jsx.js");
 const version = require("../package.json").version;
 
-const cli = argv => {
+const cli = (argv) => {
   program
     .version(version)
     .option(
@@ -69,7 +69,7 @@ const cli = argv => {
     trailingComma: program.trailingComma,
     bracketSpacing: Boolean(program.bracketSpacing),
     arrowParens: program.arrowParens,
-    printWidth: parseInt(program.printWidth)
+    printWidth: parseInt(program.printWidth),
   };
 
   const files = new Set();

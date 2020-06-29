@@ -18,8 +18,8 @@ const parseOptions = {
     "objectRestSpread",
     "dynamicImport",
     "optionalChaining",
-    "nullishCoalescingOperator"
-  ]
+    "nullishCoalescingOperator",
+  ],
 };
 
 const convert = (flowCode, options) => {
@@ -27,7 +27,7 @@ const convert = (flowCode, options) => {
 
   const comments = {
     startLine: {},
-    endLine: {}
+    endLine: {},
   };
   for (const comment of ast.comments) {
     comments.startLine[comment.loc.start.line] = comment;
@@ -38,7 +38,7 @@ const convert = (flowCode, options) => {
   const state = {
     usedUtilityTypes: new Set(),
     options: Object.assign({ inlineUtilityTypes: false }, options),
-    comments
+    comments,
   };
   traverse(ast, transform, null, state);
 
@@ -63,7 +63,7 @@ const convert = (flowCode, options) => {
       trailingComma: options.trailingComma,
       bracketSpacing: options.bracketSpacing,
       arrowParens: options.arrowParens,
-      printWidth: options.printWidth
+      printWidth: options.printWidth,
     };
     return prettier.format(tsCode, prettierOptions).trim();
   } else {

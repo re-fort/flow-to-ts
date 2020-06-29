@@ -14,7 +14,7 @@ const examples = {
   generics,
   imports,
   objectTypes,
-  utilityTypes
+  utilityTypes,
 };
 
 export type Options = {
@@ -55,7 +55,7 @@ class OptionsPanel extends React.Component<Props> {
       fontFamily: "sans-serif",
       color: "#333",
       display: "flex",
-      flexDirection: "column"
+      flexDirection: "column",
     } as React.CSSProperties;
 
     const { options, onOptionsChange } = this.props;
@@ -81,7 +81,7 @@ class OptionsPanel extends React.Component<Props> {
             display: "grid",
             gridTemplateColumns: "auto minmax(0, 1fr)",
             gridColumnGap: 16,
-            gridRowGap: 4
+            gridRowGap: 4,
           }}
         >
           <div style={{ height: 8, gridColumn: "1 / span 2" }} />
@@ -90,10 +90,10 @@ class OptionsPanel extends React.Component<Props> {
             id="prettier"
             type="checkbox"
             checked={Boolean(options.prettier)}
-            onChange={e => {
+            onChange={(e) => {
               onOptionsChange({
                 ...options,
-                prettier: e.currentTarget.checked
+                prettier: e.currentTarget.checked,
               });
             }}
           />
@@ -106,10 +106,10 @@ class OptionsPanel extends React.Component<Props> {
             type="checkbox"
             checked={options.semi}
             disabled={!options.prettier}
-            onChange={e => {
+            onChange={(e) => {
               onOptionsChange({
                 ...options,
-                semi: e.currentTarget.checked
+                semi: e.currentTarget.checked,
               });
             }}
           />
@@ -121,10 +121,10 @@ class OptionsPanel extends React.Component<Props> {
             type="checkbox"
             checked={options.singleQuote}
             disabled={!options.prettier}
-            onChange={e => {
+            onChange={(e) => {
               onOptionsChange({
                 ...options,
-                singleQuote: e.currentTarget.checked
+                singleQuote: e.currentTarget.checked,
               });
             }}
           />
@@ -136,10 +136,10 @@ class OptionsPanel extends React.Component<Props> {
             type="checkbox"
             checked={options.bracketSpacing}
             disabled={!options.prettier}
-            onChange={e => {
+            onChange={(e) => {
               onOptionsChange({
                 ...options,
-                bracketSpacing: e.currentTarget.checked
+                bracketSpacing: e.currentTarget.checked,
               });
             }}
           />
@@ -150,10 +150,10 @@ class OptionsPanel extends React.Component<Props> {
             id="tab-width"
             value={options.tabWidth}
             disabled={!options.prettier}
-            onChange={e => {
+            onChange={(e) => {
               onOptionsChange({
                 ...options,
-                tabWidth: Number(e.currentTarget.value)
+                tabWidth: Number(e.currentTarget.value),
               });
             }}
           >
@@ -167,10 +167,10 @@ class OptionsPanel extends React.Component<Props> {
             id="arrow-parens"
             value={options.arrowParens}
             disabled={!options.prettier}
-            onChange={e => {
+            onChange={(e) => {
               onOptionsChange({
                 ...options,
-                arrowParens: e.currentTarget.value as "avoid" | "always"
+                arrowParens: e.currentTarget.value as "avoid" | "always",
               });
             }}
           >
@@ -184,10 +184,10 @@ class OptionsPanel extends React.Component<Props> {
             id="trailing-commas"
             value={options.trailingComma}
             disabled={!options.prettier}
-            onChange={e => {
+            onChange={(e) => {
               onOptionsChange({
                 ...options,
-                trailingComma: e.currentTarget.value as "none" | "es5" | "all"
+                trailingComma: e.currentTarget.value as "none" | "es5" | "all",
               });
             }}
           >
@@ -203,10 +203,10 @@ class OptionsPanel extends React.Component<Props> {
             type="text"
             value={options.printWidth}
             disabled={!options.prettier}
-            onChange={e => {
+            onChange={(e) => {
               onOptionsChange({
                 ...options,
-                printWidth: Number(e.currentTarget.value)
+                printWidth: Number(e.currentTarget.value),
               });
             }}
           />
@@ -216,10 +216,10 @@ class OptionsPanel extends React.Component<Props> {
             id="inline-utility-types"
             type="checkbox"
             checked={options.inlineUtilityTypes}
-            onChange={e => {
+            onChange={(e) => {
               onOptionsChange({
                 ...options,
-                inlineUtilityTypes: e.currentTarget.checked
+                inlineUtilityTypes: e.currentTarget.checked,
               });
             }}
           />

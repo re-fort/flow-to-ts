@@ -1,4 +1,4 @@
-const getChildren = node => {
+const getChildren = (node) => {
   switch (node.type) {
     case "Program":
     case "BlockStatement":
@@ -48,7 +48,7 @@ const getChildren = node => {
  *
  * @param {BlockStatment|Program} node
  */
-const computeNewlines = node => {
+const computeNewlines = (node) => {
   const children = getChildren(node);
   const newlines = [];
 

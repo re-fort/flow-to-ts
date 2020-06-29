@@ -13,6 +13,10 @@ const cli = argv => {
       "--inline-utility-types",
       "inline utility types when possible, defaults to 'false'"
     )
+    .option(
+      "--type-only-imports-exports",
+      "allow type-only imports and exports, defaults to 'false'"
+    )
     .option("--prettier", "use prettier for formatting")
     .option(
       "--semi",
@@ -57,6 +61,7 @@ const cli = argv => {
 
   const options = {
     inlineUtilityTypes: Boolean(program.inlineUtilityTypes),
+    typeOnlyImportsExports: Boolean(program.typeOnlyImportsExports),
     prettier: program.prettier,
     semi: Boolean(program.semi),
     singleQuote: Boolean(program.singleQuote),

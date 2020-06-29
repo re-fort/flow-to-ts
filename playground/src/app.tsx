@@ -53,13 +53,13 @@ type State = {
 const defaultOptions: Options = {
   prettier: true,
   semi: true,
-  singleQuote: false,
-  tabWidth: 4,
+  singleQuote: true,
+  tabWidth: 2,
   trailingComma: "all",
-  bracketSpacing: false,
+  bracketSpacing: true,
   arrowParens: "avoid",
   printWidth: 80,
-  inlineUtilityTypes: false,
+  inlineUtilityTypes: true,
   typeOnlyImportsExports: true,
 };
 

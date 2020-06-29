@@ -37,7 +37,7 @@
     "jest-mock-process": "^1.2.0",
     "pretty-quick": "^1.10.0",
     "tmp": "^0.1.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "test": "jest",

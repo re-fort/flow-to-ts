@@ -254,7 +254,7 @@ class App extends React.Component<Props, State> {
       >
         <div style={globalHeader}>
           <h1 style={headerStyle}>flow-to-ts</h1>
-          <a href="https://github.com/Khan/flow-to-ts" target="_blank">
+          <a href="https://github.com/re-fort/flow-to-ts" target="_blank">
             <picture>
               <source srcSet={`${smallLogo}, ${largeLogo} 2x`} />
               <img src={smallLogo} alt="github" width={32} height={32} />

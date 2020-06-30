@@ -14,12 +14,18 @@ afterwards, e.g. changing `SyntheticEvent` to `React.Event`.
 
 # Quick start
 
-- `yarn global add @khanacademy/flow-to-ts`
-- `flow-to-ts [options] <file globs>`
+```bash
+git clone https://github.com/re-fort/flow-to-ts.git
+cd flow-to-ts
+yarn
+node src/flow-to-ts.js [options] <file globs>
+# to see available options
+node src/flow-to-ts
+```
 
 # Playground
 
-https://flow-to-ts.netlify.com
+https://flow2ts.netlify.app
 
 # Principles
 
@@ -54,7 +60,7 @@ test cases and should have 100% diff coverage.
 ## Dev quick start
 
 ```bash
-git clone git@github.com:Khan/flow-to-ts.git
+git clone https://github.com/re-fort/flow-to-ts.git
 cd flow-to-ts
 yarn
 yarn test
